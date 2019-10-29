@@ -1,0 +1,28 @@
+type Query {
+    info: String!
+    rocket: [Rocket!]!
+}
+
+type Mutation {
+    post(name: String!): Rocket!
+    signup(email: String!, password: String!, name: String!): AuthPayload
+    login(email: String!, password: String!): AuthPayload
+}
+
+type Rocket {
+    id: ID!
+    name: String!
+    createdBy: User
+}
+
+type AuthPayload {
+    token: String
+    user: User
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    rockets: [Rocket!]!
+}
